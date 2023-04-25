@@ -1,6 +1,8 @@
 class EmployeeParollData{
 
-    get id(){ return this._id;}
+    get id(){ 
+        return this._id;
+    }
     set id(id){
         this._id=id;
     }
@@ -14,7 +16,7 @@ class EmployeeParollData{
             this._this=name;
         }
         else{
-            throw 'Name is incorrect!';
+            throw 'Name is incorrect! Please Check your Name.';
         }
     }
 
@@ -57,7 +59,8 @@ class EmployeeParollData{
         return this._startDate;
     }
     set startDate(startDate){
-        const inputDate = new Date(startDate);
+    
+    const inputDate = new Date(startDate);
     if (isNaN(inputDate.getTime())) {
         throw new Error("Invalid date format. Please use yyyy-mm-dd format.");
     }
@@ -86,7 +89,7 @@ toString(){
 
 const salary = document.querySelector('#salary');
 const output = document.querySelector('.salary-output');
-output.textContent=salary.value;
+output.textContent =salary.value;
 salary.addEventListener('input',function(){
     output.textContent=salary.value;
 });
