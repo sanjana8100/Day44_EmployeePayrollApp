@@ -70,12 +70,14 @@ class EmployeePayrollData{
         throw new Error("Start date cannot be in the future.");
     }
 
+    // Check if the date is within 30 days of joining
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(currentDate.getDate() - 30);
     if (inputDate < this._joinDate || inputDate > currentDate) {
         throw new Error("Start date should be within 30 days of joining.");
     }
 
+    // Set the start date if all validation checks pass
     this._startDate = inputDate;
     }
     toString(){
