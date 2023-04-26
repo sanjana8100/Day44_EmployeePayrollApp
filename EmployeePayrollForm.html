@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="EmployeePayrollForm.css">
 </head>
 <body>
-    <!-- UC1 -->
     <header class="header-content header">
         <div class="logo-content">
             <img onclick="imgclicked()" src="Images/logo.jpg"width="43px" height="43px" alt="">
@@ -19,11 +18,12 @@
         </div>
     </header>
     <div class="form-content">
-        <form class="form" action="#" onreset="resetform()" onsubmit="save(event);return false">
+        <form class="form" action="#" onreset="resetform()" onsubmit="save()">
             <div class="form-head">Employee Payroll Form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
-                <input class="input" type="text" id="name" name="name" placeholder="Enter Your name " required>
+                <input class="input" type="text" id="name" name="name" placeholder="Enter Your Name " required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text"for="profile">Profile image </label>

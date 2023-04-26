@@ -1,4 +1,4 @@
-class EmployeeParollData{
+class EmployeePayrollData{
 
     get id(){ 
         return this._id;
@@ -11,12 +11,12 @@ class EmployeeParollData{
         return this._name;
     }
     set name(name){
-        let nameRegex=RegExp('^[A-Z]{1}{a-zA-Z\\s}{2,}$')
+        let nameRegex=RegExp('^[A-Z][a-z]{3,}$')
         if(nameRegex.test(name)){
             this._this=name;
         }
         else{
-            throw 'Name is incorrect! Please Check your Name.';
+            throw 'name is incorrect!';
         }
     }
 
@@ -59,12 +59,12 @@ class EmployeeParollData{
         return this._startDate;
     }
     set startDate(startDate){
-    
+          // Check if the input is a valid date
     const inputDate = new Date(startDate);
     if (isNaN(inputDate.getTime())) {
         throw new Error("Invalid date format. Please use yyyy-mm-dd format.");
     }
-    
+        // Check if the date is not in the future
     const currentDate = new Date();
     if (inputDate > currentDate) {
         throw new Error("Start date cannot be in the future.");
@@ -78,12 +78,12 @@ class EmployeeParollData{
 
     this._startDate = inputDate;
     }
-toString(){
+    toString(){
     const options ={year :'numeric',month:'long',day:'numeric'}
     const empDate= !this.startDate ? "undefined": 
                     this.startDate.toLocaleDateString("en-US",options);
-    return "id=" +this.id+"name= "+this.name+", gender="+this.gender + ", profilePic=" +this.profilepic + 
-    ", department="+ this.department + ", salary="+this.salary+ ", startDate=" +empDate+", note="+this.note;
+    return "id= " +this.id+", name= "+this.name+", gender= "+this.gender + ", profilePic= "  +this.profilepic + 
+    ", department= "+ this.department + ", salary= "+this.salary+ ", startDate= " +empDate+", note= "+this.note;
 }
 }
 
@@ -91,7 +91,7 @@ const salary = document.querySelector('#salary');
 const output = document.querySelector('.salary-output');
 output.textContent =salary.value;
 salary.addEventListener('input',function(){
-    output.textContent=salary.value;
+    output.textContent=salary.value
 });
 
 imgclicked=()=>{
